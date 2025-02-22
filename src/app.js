@@ -24,12 +24,12 @@ function createNewInputField() {
           <span>Value</span>
           <input
             type="number"
-            class="text-slate-900 ml-2 rounded-md px-2 py-1 noise-value focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+            class="text-slate-900 bg-slate-50 ml-2 rounded-md px-2 py-1 noise-value focus:outline-[4px] focus:outline-offset-[-1px] focus:outline-sky-400 focus:ring-0"
           />
           <span class="pl-3">Time</span>
           <input
             type="number"
-            class="text-slate-900 mx-2 rounded-md outline-[5px] px-2 min-w-[3rem] w-16 py-1 time-value focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+            class="text-slate-900 bg-slate-50 mx-2 rounded-md px-2 min-w-[3rem] w-16 py-1 time-value focus:outline-[4px] focus:outline-offset-[-1px] focus:outline-sky-400 focus:ring-0"
           />
         `;
 
