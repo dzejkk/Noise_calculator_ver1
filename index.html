@@ -3,9 +3,139 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noise Calculator</title>
+    <title>Noise Calc ver.1.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer base {
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+    </style>
+    <script src="/src/app.js" defer></script>
+    <!--------------Animation library---------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   </head>
-  <body>
-    Hi there
+
+  <body class="bg-slate-50 text-slate-700" id="body">
+    <div class="flex justify-center items-center h-dvh flex-col">
+      <h1 class="text-4xl my-4">Work Noise calc.app</h1>
+      <hr class="border-slate-300 w-[20rem]" />
+      <div class="font-light flex justify-between w-96 mt-6">
+        <h2 class="pl-28 font-bold">LAeq <small>[dB]</small></h2>
+        <h2 class="font-bold">In minutes</h2>
+      </div>
+
+      <!--------------Container-->
+      <div
+        class="grid grid-cols-1 gap-4 my-3 bg-slate-800 p-5 rounded-md font-semibold shadow-xl shadow-slate-700 text-slate-50"
+        id="input-container"
+      >
+        <div class>
+          <span>Value</span>
+          <input
+            type="number"
+            class="text-slate-900 ml-2 rounded-md px-2 py-1 noise-value focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+          />
+          <span class="pl-3">Time</span>
+          <input
+            type="number"
+            class="text-slate-900 mx-2 rounded-md outline-[5px] px-2 min-w-[3rem] w-16 py-1 time-value focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+          />
+        </div>
+
+        <div>
+          <span>Value</span>
+          <input
+            type="number"
+            class="text-slate-900 ml-2 rounded-md outline-none px-2 noise-value py-1 focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+          />
+          <span class="pl-3">Time</span>
+          <input
+            type="number"
+            class="text-slate-900 mx-2 rounded-md outline-none min-w-[3rem] w-16 px-2 time-value py-1 focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+          />
+        </div>
+
+        <div>
+          <span>Value</span>
+          <input
+            type="number"
+            class="text-slate-900 ml-2 rounded-md outline-none px-2 noise-value py-1 focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+          />
+          <span class="pl-3">Time</span>
+          <input
+            type="number"
+            class="text-slate-900 mx-2 rounded-md outline-none min-w-[3rem] w-16 px-2 time-value py-1 focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+          />
+        </div>
+
+        <div>
+          <span>Value</span>
+          <input
+            type="number"
+            class="text-slate-900 ml-2 rounded-md outline-none px-2 noise-value py-1 focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+          />
+          <span class="pl-3">Time</span>
+          <input
+            type="number"
+            class="text-slate-900 mx-2 rounded-md outline-none min-w-[3rem] w-16 px-2 time-value py-1 focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+          />
+        </div>
+
+        <div>
+          <span>Value</span>
+          <input
+            type="number"
+            class="text-slate-900 ml-2 rounded-md outline-none px-2 noise-value py-1 focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+          />
+          <span class="pl-3">Time</span>
+          <input
+            type="number"
+            class="text-slate-900 mx-2 rounded-md outline-none w-16 px-2 time-value py-1 focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+          />
+        </div>
+
+        <div>
+          <span>Value</span>
+          <input
+            type="number"
+            class="text-slate-900 ml-2 rounded-md outline-none px-2 noise-value py-1 focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+          />
+          <span class="pl-3">Time</span>
+          <input
+            type="number"
+            class="text-slate-900 mx-2 rounded-md outline-none min-w-[3rem] w-16 px-2 time-value py-1 focus:outline-4 focus:-outline-offset-1 focus:outline-sky-400 focus:outline-none focus:ring-0"
+          />
+        </div>
+      </div>
+
+      <button
+        class="transiton ease-in-out duration-300 hover:bg-sky-500 rounded-md w-64 items-center mx-auto text-xl active:-translate-y-1 mb-1 focus:bg-sky-500"
+        onclick="createNewInputField()"
+      >
+        +
+      </button>
+
+      <button
+        class="transiton ease-in-out duration-300 hover:bg-red-300 rounded-md w-64 items-center mx-auto text-xl active:-translate-y-1 focus:bg-red-300"
+        onclick="removeLastInputField()"
+        id="remove-btn"
+      >
+        -
+      </button>
+      <button
+        id="calculateBtn"
+        class="transiton ease-in-out duration-300 hover:bg-green-500 bg-gray-600 rounded-md w-64 items-center mx-auto text-xl active:-translate-y-1 mt-4 text-slate-50"
+      >
+        Calculate
+      </button>
+      <div
+        id="resultDisplay"
+        class="text-xl font-bold mt-4 text-center hidden"
+      ></div>
+    </div>
   </body>
 </html>
