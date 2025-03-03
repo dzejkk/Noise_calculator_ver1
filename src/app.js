@@ -107,7 +107,7 @@ calculateBtn.addEventListener("click", () => {
   try {
     const result = calculateNormalizedNoise();
     if (!isNaN(result) && result !== Infinity && result !== -Infinity) {
-      resultDisplay.textContent = `Normalized Noise Level: LEX,8h: ${result} dB (without unceranty)`;
+      resultDisplay.textContent = `Normalized Noise Level: LEX,8h: ${result}dB (without unceranty)`;
       resultDisplay.classList.remove("hidden");
 
       anime({
