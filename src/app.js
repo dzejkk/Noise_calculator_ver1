@@ -1,6 +1,7 @@
 // DOM Elements
 const inputContainer = document.getElementById("input-container");
 const removeBtn = document.getElementById("remove-btn");
+const addBtn = document.getElementById("add-btn");
 const calculateBtn = document.getElementById("calculateBtn");
 const resultDisplay = document.getElementById("resultDisplay");
 
@@ -133,3 +134,9 @@ calculateBtn.addEventListener("click", () => {
     });
   }
 });
+
+// Event listener for add button
+addBtn.addEventListener("click", createNewInputField);
+
+// Event listener for remove button
+removeBtn.addEventListener("click", removeLastInputField);
