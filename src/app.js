@@ -22,15 +22,17 @@ anime({
 function createNewInputField() {
   let newElement = document.createElement("div");
   newElement.innerHTML = `
-          <span>Value</span>
+          <label>Value</label>
           <input
             type="number"
-            class="text-slate-900 bg-slate-50 ml-2 rounded-md px-2 py-1 noise-value focus:outline-[4px] focus:outline-offset-[-1px] focus:outline-sky-400 focus:ring-0"
+            class="text-slate-900 w-24 sm:w-[13rem] bg-slate-50 ml-2 rounded-md px-2 py-1 noise-value focus:outline-[4px] focus:outline-offset-[-1px] focus:outline-sky-400 focus:ring-0 placeholder:text-[0.75rem]"
+            placeholder="LAeq"
           />
-          <span class="pl-3">Time</span>
+          <label class="pl-3">Time</label>
           <input
             type="number"
-            class="text-slate-900 bg-slate-50 mx-2 rounded-md px-2 min-w-[3rem] w-16 py-1 time-value focus:outline-[4px] focus:outline-offset-[-1px] focus:outline-sky-400 focus:ring-0"
+            class="text-slate-900 bg-slate-50 mx-2 rounded-md px-2 min-w-[3rem] w-16 py-1 time-value focus:outline-[4px] focus:outline-offset-[-1px] focus:outline-sky-400 focus:ring-0 placeholder:text-sm"
+            placeholder="min"
           />
         `;
 
